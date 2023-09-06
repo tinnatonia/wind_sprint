@@ -18,6 +18,7 @@
     <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
     <SetMembershipControl />
     <SheetIdentifierTracking />
+    <SpatialFileLayer />
     <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
     <WindowsPersistSimpleIdentifiers />
     <WorksheetBackgroundTransparency />
@@ -36,41 +37,27 @@
       <connection class='federated'>
         <named-connections>
           <named-connection caption='wind_turbine_20220114' name='textscan.05ztcvd1an8xgk11baarr1wwd9f5'>
-            <connection class='textscan' directory='Data/Data Sprint' filename='wind_turbine_20220114.csv' password='' server='' />
+            <connection class='textscan' directory='C:/Users/andre/OneDrive/Documents/General Assembly Assignments/Data Sprint' filename='wind_turbine_20220114.csv' password='' server='' />
           </named-connection>
           <named-connection caption='windspeed_avg' name='textscan.1wc6gx20ku0vkf12d25db1wqc514'>
-            <connection class='textscan' directory='Data/Data Sprint' filename='windspeed_avg.csv' password='' server='' />
+            <connection class='textscan' directory='C:/Users/andre/OneDrive/Documents/General Assembly Assignments/Data Sprint' filename='windspeed_avg.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='cb_2018_us_county_500k' name='ogrdirect.0xgx8690829o7m1313aa80z4izgp'>
+            <connection class='ogrdirect' directory='C:/Users/andre/OneDrive/Documents/General Assembly Assignments/Data Sprint/shapefiles/cb_2018_us_county_500k' filename='cb_2018_us_county_500k.shp' password='' server='' tablename='' />
           </named-connection>
         </named-connections>
-        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='textscan.05ztcvd1an8xgk11baarr1wwd9f5' name='wind_turbine_20220114.csv' table='[wind_turbine_20220114#csv]' type='table'>
-          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
-            <column datatype='integer' name='case_id' ordinal='0' />
-            <column datatype='string' name='faa_ors' ordinal='1' />
-            <column datatype='string' name='faa_asn' ordinal='2' />
-            <column datatype='integer' name='usgs_pr_id' ordinal='3' />
-            <column datatype='integer' name='eia_id' ordinal='4' />
-            <column datatype='string' name='t_state' ordinal='5' />
-            <column datatype='string' name='t_county' ordinal='6' />
-            <column datatype='integer' name='t_fips' ordinal='7' />
-            <column datatype='string' name='p_name' ordinal='8' />
-            <column datatype='integer' name='p_year' ordinal='9' />
-            <column datatype='integer' name='p_tnum' ordinal='10' />
-            <column datatype='real' name='p_cap' ordinal='11' />
-            <column datatype='string' name='t_manu' ordinal='12' />
-            <column datatype='string' name='t_model' ordinal='13' />
-            <column datatype='integer' name='t_cap' ordinal='14' />
-            <column datatype='real' name='t_hh' ordinal='15' />
-            <column datatype='real' name='t_rd' ordinal='16' />
-            <column datatype='real' name='t_rsa' ordinal='17' />
-            <column datatype='real' name='t_ttlh' ordinal='18' />
-            <column datatype='integer' name='retrofit' ordinal='19' />
-            <column datatype='string' name='retrofit_year' ordinal='20' />
-            <column datatype='integer' name='t_conf_atr' ordinal='21' />
-            <column datatype='integer' name='t_conf_loc' ordinal='22' />
-            <column datatype='date' name='t_img_date' ordinal='23' />
-            <column datatype='string' name='t_img_srce' ordinal='24' />
-            <column datatype='real' name='xlong' ordinal='25' />
-            <column datatype='real' name='ylat' ordinal='26' />
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='ogrdirect.0xgx8690829o7m1313aa80z4izgp' name='cb_2018_us_county_500k.shp' table='[cb_2018_us_county_500k.shp]' type='table'>
+          <columns>
+            <column datatype='string' name='STATEFP' ordinal='0' />
+            <column datatype='string' name='COUNTYFP' ordinal='1' />
+            <column datatype='string' name='COUNTYNS' ordinal='2' />
+            <column datatype='string' name='AFFGEOID' ordinal='3' />
+            <column datatype='string' name='GEOID' ordinal='4' />
+            <column datatype='string' name='NAME' ordinal='5' />
+            <column datatype='string' name='LSAD' ordinal='6' />
+            <column datatype='integer' name='ALAND' ordinal='7' />
+            <column datatype='integer' name='AWATER' ordinal='8' />
+            <column datatype='spatial' name='Geometry' ordinal='9' />
           </columns>
         </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
         <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
@@ -121,6 +108,20 @@
               <column datatype='real' name='October' ordinal='11' />
               <column datatype='real' name='November' ordinal='12' />
               <column datatype='real' name='December' ordinal='13' />
+            </columns>
+          </relation>
+          <relation connection='ogrdirect.0xgx8690829o7m1313aa80z4izgp' name='cb_2018_us_county_500k.shp' table='[cb_2018_us_county_500k.shp]' type='table'>
+            <columns>
+              <column datatype='string' name='STATEFP' ordinal='0' />
+              <column datatype='string' name='COUNTYFP' ordinal='1' />
+              <column datatype='string' name='COUNTYNS' ordinal='2' />
+              <column datatype='string' name='AFFGEOID' ordinal='3' />
+              <column datatype='string' name='GEOID' ordinal='4' />
+              <column datatype='string' name='NAME' ordinal='5' />
+              <column datatype='string' name='LSAD' ordinal='6' />
+              <column datatype='integer' name='ALAND' ordinal='7' />
+              <column datatype='integer' name='AWATER' ordinal='8' />
+              <column datatype='spatial' name='Geometry' ordinal='9' />
             </columns>
           </relation>
         </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
@@ -680,14 +681,151 @@
             <contains-null>true</contains-null>
             <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[windspeed_avg.csv_25329D5E589D40949B2DA65C89D806E5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>STATEFP</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[STATEFP]</local-name>
+            <parent-name>[cb_2018_us_county_500k.shp]</parent-name>
+            <remote-alias>STATEFP</remote-alias>
+            <ordinal>41</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cb_2018_us_county_500k.shp_099744DFF4BC4E0DA6E09D4BCD5FF9EA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>COUNTYFP</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[COUNTYFP]</local-name>
+            <parent-name>[cb_2018_us_county_500k.shp]</parent-name>
+            <remote-alias>COUNTYFP</remote-alias>
+            <ordinal>42</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cb_2018_us_county_500k.shp_099744DFF4BC4E0DA6E09D4BCD5FF9EA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>COUNTYNS</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[COUNTYNS]</local-name>
+            <parent-name>[cb_2018_us_county_500k.shp]</parent-name>
+            <remote-alias>COUNTYNS</remote-alias>
+            <ordinal>43</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cb_2018_us_county_500k.shp_099744DFF4BC4E0DA6E09D4BCD5FF9EA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>AFFGEOID</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[AFFGEOID]</local-name>
+            <parent-name>[cb_2018_us_county_500k.shp]</parent-name>
+            <remote-alias>AFFGEOID</remote-alias>
+            <ordinal>44</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cb_2018_us_county_500k.shp_099744DFF4BC4E0DA6E09D4BCD5FF9EA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>GEOID</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[GEOID]</local-name>
+            <parent-name>[cb_2018_us_county_500k.shp]</parent-name>
+            <remote-alias>GEOID</remote-alias>
+            <ordinal>45</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cb_2018_us_county_500k.shp_099744DFF4BC4E0DA6E09D4BCD5FF9EA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>NAME</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[NAME]</local-name>
+            <parent-name>[cb_2018_us_county_500k.shp]</parent-name>
+            <remote-alias>NAME</remote-alias>
+            <ordinal>46</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cb_2018_us_county_500k.shp_099744DFF4BC4E0DA6E09D4BCD5FF9EA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>LSAD</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[LSAD]</local-name>
+            <parent-name>[cb_2018_us_county_500k.shp]</parent-name>
+            <remote-alias>LSAD</remote-alias>
+            <ordinal>47</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cb_2018_us_county_500k.shp_099744DFF4BC4E0DA6E09D4BCD5FF9EA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ALAND</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ALAND]</local-name>
+            <parent-name>[cb_2018_us_county_500k.shp]</parent-name>
+            <remote-alias>ALAND</remote-alias>
+            <ordinal>48</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cb_2018_us_county_500k.shp_099744DFF4BC4E0DA6E09D4BCD5FF9EA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>AWATER</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[AWATER]</local-name>
+            <parent-name>[cb_2018_us_county_500k.shp]</parent-name>
+            <remote-alias>AWATER</remote-alias>
+            <ordinal>49</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cb_2018_us_county_500k.shp_099744DFF4BC4E0DA6E09D4BCD5FF9EA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Geometry</remote-name>
+            <remote-type>8</remote-type>
+            <local-name>[Geometry]</local-name>
+            <parent-name>[cb_2018_us_county_500k.shp]</parent-name>
+            <remote-alias>Geometry</remote-alias>
+            <ordinal>50</ordinal>
+            <local-type>spatial</local-type>
+            <aggregation>Collect</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cb_2018_us_county_500k.shp_099744DFF4BC4E0DA6E09D4BCD5FF9EA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
         </metadata-records>
       </connection>
       <aliases enabled='yes' />
+      <column caption='Affgeoid' datatype='string' name='[AFFGEOID]' role='dimension' type='nominal' />
+      <column caption='Aland' datatype='integer' name='[ALAND]' role='measure' type='quantitative' />
+      <column caption='Awater' datatype='integer' name='[AWATER]' role='measure' type='quantitative' />
+      <column caption='Countyfp' datatype='string' name='[COUNTYFP]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+      <column caption='Countyns' datatype='string' name='[COUNTYNS]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
       <column datatype='string' name='[City]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column caption='Geoid' datatype='string' name='[GEOID]' role='dimension' type='nominal' />
+      <column caption='Lsad' datatype='string' name='[LSAD]' role='dimension' type='nominal' />
+      <column caption='Name' datatype='string' name='[NAME]' role='dimension' type='nominal' />
       <column datatype='integer' name='[Number]' role='dimension' type='ordinal' />
+      <column caption='Statefp' datatype='string' name='[STATEFP]' role='dimension' type='nominal' />
       <column aggregation='None' datatype='integer' name='[T Cap (bin)]' role='dimension' type='quantitative'>
         <calculation class='bin' decimals='2' formula='[t_cap]' peg='0' size='337' />
       </column>
+      <_.fcp.ObjectModelTableType.true...column caption='cb_2018_us_county_500k.shp' datatype='table' name='[__tableau_internal_object_id__].[cb_2018_us_county_500k.shp_099744DFF4BC4E0DA6E09D4BCD5FF9EA]' role='measure' type='quantitative' />
       <_.fcp.ObjectModelTableType.true...column caption='wind_turbine_20220114.csv' datatype='table' name='[__tableau_internal_object_id__].[wind_turbine_20220114.csv_992DDC88D1C7431AA4AF50CE9742F62D]' role='measure' type='quantitative' />
       <_.fcp.ObjectModelTableType.true...column caption='windspeed_avg.csv' datatype='table' name='[__tableau_internal_object_id__].[windspeed_avg.csv_25329D5E589D40949B2DA65C89D806E5]' role='measure' type='quantitative' />
       <column caption='Case Id' datatype='integer' name='[case_id]' role='dimension' type='ordinal' />
@@ -753,12 +891,13 @@
           <field>[t_county]</field>
         </drill-path>
       </drill-paths>
-      <extract _.fcp.ObjectModelExtractV2.true...object-id='' _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='false' units='records'>
+      <extract _.fcp.ObjectModelExtractV2.true...object-id='' _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' units='records'>
         <connection access_mode='readonly' authentication='auth-none' author-locale='en_US' class='hyper' dbname='Data/en_US-US/wind_turbine_20220114.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' update-time='' username='tableau_internal_user'>
-          <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='wind_turbine_20220114.csv_992DDC88D1C7431AA4AF50CE9742F62D' table='[Extract].[wind_turbine_20220114.csv_992DDC88D1C7431AA4AF50CE9742F62D]' type='table' />
+          <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='cb_2018_us_county_500k.shp_099744DFF4BC4E0DA6E09D4BCD5FF9EA' table='[Extract].[cb_2018_us_county_500k.shp_099744DFF4BC4E0DA6E09D4BCD5FF9EA]' type='table' />
           <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
             <relation name='wind_turbine_20220114.csv_992DDC88D1C7431AA4AF50CE9742F62D' table='[Extract].[wind_turbine_20220114.csv_992DDC88D1C7431AA4AF50CE9742F62D]' type='table' />
             <relation name='windspeed_avg.csv_25329D5E589D40949B2DA65C89D806E5' table='[Extract].[windspeed_avg.csv_25329D5E589D40949B2DA65C89D806E5]' type='table' />
+            <relation name='cb_2018_us_county_500k.shp_099744DFF4BC4E0DA6E09D4BCD5FF9EA' table='[Extract].[cb_2018_us_county_500k.shp_099744DFF4BC4E0DA6E09D4BCD5FF9EA]' type='table' />
           </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
           <metadata-records>
             <metadata-record class='column'>
@@ -1304,6 +1443,143 @@
               <approx-count>92</approx-count>
               <contains-null>true</contains-null>
             </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>STATEFP</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[STATEFP]</local-name>
+              <parent-name>[cb_2018_us_county_500k.shp_099744DFF4BC4E0DA6E09D4BCD5FF9EA]</parent-name>
+              <remote-alias>STATEFP</remote-alias>
+              <ordinal>41</ordinal>
+              <family>cb_2018_us_county_500k.shp</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>58</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='binary' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>COUNTYFP</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[COUNTYFP]</local-name>
+              <parent-name>[cb_2018_us_county_500k.shp_099744DFF4BC4E0DA6E09D4BCD5FF9EA]</parent-name>
+              <remote-alias>COUNTYFP</remote-alias>
+              <ordinal>42</ordinal>
+              <family>cb_2018_us_county_500k.shp</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>239</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='binary' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>COUNTYNS</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[COUNTYNS]</local-name>
+              <parent-name>[cb_2018_us_county_500k.shp_099744DFF4BC4E0DA6E09D4BCD5FF9EA]</parent-name>
+              <remote-alias>COUNTYNS</remote-alias>
+              <ordinal>43</ordinal>
+              <family>cb_2018_us_county_500k.shp</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3233</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='binary' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>AFFGEOID</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[AFFGEOID]</local-name>
+              <parent-name>[cb_2018_us_county_500k.shp_099744DFF4BC4E0DA6E09D4BCD5FF9EA]</parent-name>
+              <remote-alias>AFFGEOID</remote-alias>
+              <ordinal>44</ordinal>
+              <family>cb_2018_us_county_500k.shp</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3233</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='binary' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>GEOID</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[GEOID]</local-name>
+              <parent-name>[cb_2018_us_county_500k.shp_099744DFF4BC4E0DA6E09D4BCD5FF9EA]</parent-name>
+              <remote-alias>GEOID</remote-alias>
+              <ordinal>45</ordinal>
+              <family>cb_2018_us_county_500k.shp</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3233</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='binary' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>NAME</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[NAME]</local-name>
+              <parent-name>[cb_2018_us_county_500k.shp_099744DFF4BC4E0DA6E09D4BCD5FF9EA]</parent-name>
+              <remote-alias>NAME</remote-alias>
+              <ordinal>46</ordinal>
+              <family>cb_2018_us_county_500k.shp</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1302</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='binary' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>LSAD</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[LSAD]</local-name>
+              <parent-name>[cb_2018_us_county_500k.shp_099744DFF4BC4E0DA6E09D4BCD5FF9EA]</parent-name>
+              <remote-alias>LSAD</remote-alias>
+              <ordinal>47</ordinal>
+              <family>cb_2018_us_county_500k.shp</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>11</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='binary' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>ALAND</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[ALAND]</local-name>
+              <parent-name>[cb_2018_us_county_500k.shp_099744DFF4BC4E0DA6E09D4BCD5FF9EA]</parent-name>
+              <remote-alias>ALAND</remote-alias>
+              <ordinal>48</ordinal>
+              <family>cb_2018_us_county_500k.shp</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>3233</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>AWATER</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[AWATER]</local-name>
+              <parent-name>[cb_2018_us_county_500k.shp_099744DFF4BC4E0DA6E09D4BCD5FF9EA]</parent-name>
+              <remote-alias>AWATER</remote-alias>
+              <ordinal>49</ordinal>
+              <family>cb_2018_us_county_500k.shp</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>3233</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Geometry</remote-name>
+              <remote-type>128</remote-type>
+              <local-name>[Geometry]</local-name>
+              <parent-name>[cb_2018_us_county_500k.shp_099744DFF4BC4E0DA6E09D4BCD5FF9EA]</parent-name>
+              <remote-alias>Geometry</remote-alias>
+              <ordinal>50</ordinal>
+              <family>cb_2018_us_county_500k.shp</family>
+              <local-type>spatial</local-type>
+              <aggregation>Collect</aggregation>
+              <approx-count>3233</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
           </metadata-records>
         </connection>
       </extract>
@@ -1695,6 +1971,27 @@
       </semantic-values>
       <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
         <objects>
+          <object caption='cb_2018_us_county_500k.shp' id='cb_2018_us_county_500k.shp_099744DFF4BC4E0DA6E09D4BCD5FF9EA'>
+            <properties context=''>
+              <relation connection='ogrdirect.0xgx8690829o7m1313aa80z4izgp' name='cb_2018_us_county_500k.shp' table='[cb_2018_us_county_500k.shp]' type='table'>
+                <columns>
+                  <column datatype='string' name='STATEFP' ordinal='0' />
+                  <column datatype='string' name='COUNTYFP' ordinal='1' />
+                  <column datatype='string' name='COUNTYNS' ordinal='2' />
+                  <column datatype='string' name='AFFGEOID' ordinal='3' />
+                  <column datatype='string' name='GEOID' ordinal='4' />
+                  <column datatype='string' name='NAME' ordinal='5' />
+                  <column datatype='string' name='LSAD' ordinal='6' />
+                  <column datatype='integer' name='ALAND' ordinal='7' />
+                  <column datatype='integer' name='AWATER' ordinal='8' />
+                  <column datatype='spatial' name='Geometry' ordinal='9' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='cb_2018_us_county_500k.shp_099744DFF4BC4E0DA6E09D4BCD5FF9EA' table='[Extract].[cb_2018_us_county_500k.shp_099744DFF4BC4E0DA6E09D4BCD5FF9EA]' type='table' />
+            </properties>
+          </object>
           <object caption='wind_turbine_20220114.csv' id='wind_turbine_20220114.csv_992DDC88D1C7431AA4AF50CE9742F62D'>
             <properties context=''>
               <relation connection='textscan.05ztcvd1an8xgk11baarr1wwd9f5' name='wind_turbine_20220114.csv' table='[wind_turbine_20220114#csv]' type='table'>
@@ -1760,6 +2057,14 @@
           </object>
         </objects>
         <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[City]' />
+              <expression op='[STATEFP]' />
+            </expression>
+            <first-end-point object-id='windspeed_avg.csv_25329D5E589D40949B2DA65C89D806E5' />
+            <second-end-point object-id='cb_2018_us_county_500k.shp_099744DFF4BC4E0DA6E09D4BCD5FF9EA' />
+          </relationship>
           <relationship>
             <expression op='='>
               <expression op='[t_county]' />
@@ -2079,6 +2384,8 @@
           </mapsources>
           <datasource-dependencies datasource='federated.16vm7jm0o1ft58128e3tu0oh0cyh'>
             <column datatype='string' name='[City]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column datatype='spatial' name='[Geometry]' role='measure' type='nominal' />
+            <column caption='Name' datatype='string' name='[NAME]' role='dimension' type='nominal' />
             <column datatype='integer' name='[Number]' role='dimension' type='ordinal' />
             <column-instance column='[p_name]' derivation='Attribute' name='[attr:p_name:nk]' pivot='key' type='nominal' />
             <column-instance column='[t_manu]' derivation='Attribute' name='[attr:t_manu:nk]' pivot='key' type='nominal' />
@@ -2086,7 +2393,9 @@
             <column-instance column='[xlong]' derivation='Avg' name='[avg:xlong:qk]' pivot='key' type='quantitative' />
             <column-instance column='[ylat]' derivation='Avg' name='[avg:ylat:qk]' pivot='key' type='quantitative' />
             <column caption='Case Id' datatype='integer' name='[case_id]' role='dimension' type='ordinal' />
+            <column-instance column='[Geometry]' derivation='Collect' name='[clct:Geometry:nk]' pivot='key' type='nominal' />
             <column-instance column='[City]' derivation='None' name='[none:City:nk]' pivot='key' type='nominal' />
+            <column-instance column='[NAME]' derivation='None' name='[none:NAME:nk]' pivot='key' type='nominal' />
             <column-instance column='[Number]' derivation='None' name='[none:Number:ok]' pivot='key' type='ordinal' />
             <column-instance column='[case_id]' derivation='None' name='[none:case_id:ok]' pivot='key' type='ordinal' />
             <column-instance column='[t_manu]' derivation='None' name='[none:t_manu:nk]' pivot='key' type='nominal' />
@@ -2235,6 +2544,16 @@
                 <format attr='mark-labels-show' value='true' />
               </style-rule>
             </style>
+          </_.fcp.Layers.true...pane>
+          <_.fcp.Layers.true...pane generated-title='cb_2018_us_county_500k.shp' id='3' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[federated.16vm7jm0o1ft58128e3tu0oh0cyh].[clct:Geometry:nk]' />
+              <lod column='[federated.16vm7jm0o1ft58128e3tu0oh0cyh].[none:NAME:nk]' />
+            </encodings>
           </_.fcp.Layers.true...pane>
         </panes>
         <rows>[federated.16vm7jm0o1ft58128e3tu0oh0cyh].[avg:ylat:qk]</rows>
