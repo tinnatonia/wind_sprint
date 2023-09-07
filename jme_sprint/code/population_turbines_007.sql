@@ -1,0 +1,2 @@
+-- 007 as an investor, i want to understand the locations that wind turbines are in, and how that matches with population data (use t_fips)
+select case_id, eia_id, t_fips, p_name, xlong, ylat from public.wind_turbine_20220114
