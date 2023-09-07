@@ -1,0 +1,22 @@
+# Displaying a subset of the dataset to understand its structure
+windspeed_avg.head()
+
+# Proceeding with reshaping the data
+
+# Extract the month columns
+month_cols = windspeed_avg.columns[3:]
+
+# Melt the data again with the desired format
+reshaped_windspeed_v2 = pd.melt(windspeed_avg, id_vars=['City', 'State'], 
+                                value_vars=month_cols, 
+                                var_name='Month', 
+                                value_name='Wind Speed')
+
+# Convert the month names to proper date format for the year 2022
+reshaped_windspeed_v2['Date'] = '2022-' + pd.to_datetime(reshaped_windspeed_v2['Month'], format='%B').dt.strftime('%m') + '-01'
+reshaped_windspeed_v2['Date'] = pd.to_datetime(reshaped_windspeed_v2['Date'])
+reshaped_windspeed_v2 = reshaped_windspeed_v2.drop(columns=['Month'])
+
+# Saving to CSV
+reshaped_windspeed_v2.to_csv("/mnt/data/reshaped_windspeed_v2.csv", index=False)
+reshaped_windspeed_v2.head()
